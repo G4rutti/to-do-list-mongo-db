@@ -1,10 +1,13 @@
 import express from 'express'
+import cors from 'cors'
 import {client, create, readAll, readOneByName, updateByName, deleteByName} from '../infra/database.js'
+
 const app = express()
 const port = process.env.PORT || 3000
 
 // O express começará a ler as requisições req.body no formato de json
 app.use(express.json())
+app.use(cors())
 
 
 app.post('/', async (req, res) => {
