@@ -55,20 +55,3 @@ export async function deleteByName(nome){
     return result
 }
 
-async function run() {
-  try {
-    await client.connect()
-    // Fazer todas as etapas do crud
-    // await create("Arrumar cabelo","Passar shampoo do cr7 de depois finaliza-lo")
-    // await readAll()
-    // await readOneByName('Estudar')
-    // await updateByName("Estudar", "Estudar", "Estudar as linguagens de programação Python e Django")
-    // await deleteByName("Organizar casa")
-
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-
-run().catch(console.dir);
