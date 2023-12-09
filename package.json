@@ -1,0 +1,16 @@
+{
+  "name": "to-do-list-mongo-db",
+  "version": "1.0.0",
+  "description": "<h1>Passos para fazer as instalações corretamente:</h1>\r <ol>\r     <li>nmp init -y</li>\r     <li>npm install express --save</li>\r     <li></li>\r     <li></li>\r </ol>",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mongodb": "6.3"
+  }
+}
