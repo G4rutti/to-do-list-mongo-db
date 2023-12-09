@@ -9,10 +9,11 @@ export const client = new MongoClient(uri);
 const database = client.db('to_do_list');
 const collection = database.collection('lista_de_afazeres');
 
-async function create(nome, descricao){
+export async function create(nome, descricao, feito){
     const doc = {
         nome: `${nome}`,
-        descricao: `${descricao}`
+        descricao: `${descricao}`,
+        feito: feito
     }
 
     const result = await collection.insertOne(doc)
@@ -20,35 +21,38 @@ async function create(nome, descricao){
 
 }
 
-async function readAll(){
+export async function readAll(){
     // const cursor = collection.find({_id: {$lt: 0}})
     const cursor = collection.find({})
     // Convert the cursor to an array
     const documents = await cursor.toArray();
 
     // Print returned documents
-    console.log(documents);
+    return documents;
 }
 
-async function readOneByName(nome){
+export async function readOneByName(nome){
     const cursor = await collection.findOne({nome:nome})
-    console.log(await cursor)
+    return cursor
 }
 
-async function updateByName(nome, alteracao1, alteracao2){
+export async function updateByName(nome, alteracao1, alteracao2, alteracao3){
     const filter = {nome: nome}
     const updateName = {
         $set : {
             nome: alteracao1,
-            descricao: alteracao2
+            descricao: alteracao2,
+            feito: alteracao3
         }
     }
     const result = await collection.updateOne(filter, updateName)
+    return result
 }
 
-async function deleteByName(nome){
+export async function deleteByName(nome){
     const query = {nome : nome}
     const result = await collection.deleteOne(query)
+    return result
 }
 
 async function run() {
