@@ -22,6 +22,7 @@ app.post('/', async (req, res) => {
 
 app.get('/', async (req, res) => {
     try {
+        res.setHeader('Cache-Control', 'no-store');
         await client.connect()
         res.status(200).send(await readAll())
     } finally {
@@ -32,6 +33,7 @@ app.get('/', async (req, res) => {
 
 app.get('/:nome', async (req,res) =>{
     try {
+        res.setHeader('Cache-Control', 'no-store');
         await client.connect()
         res.status(200).send(await readOneByName(req.params.nome))
     } finally {
