@@ -5,4 +5,5 @@
     <li>npm install express --save</li>
     <li>npm install nodemon -D</li>
     <li>npm install cors</li>
+    <li>npm run dev</li>
 </ol>
